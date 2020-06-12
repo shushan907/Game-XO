@@ -75,11 +75,14 @@ function winners () {
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 function win(id) {
     setTimeout (() => {
+        document.querySelector('.pyro').style.display = 'block';
         alert (`Win ${document.querySelector(id).innerHTML}!`);
-        window.location.reload();
-    }, 0);
-    startCanvasPainting()
-}
+        setTimeout(() => {
+            window.location.reload();
+        },8000)
+    },1000);
+    startCanvasPainting();
+};
 
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
