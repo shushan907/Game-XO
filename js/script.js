@@ -89,10 +89,12 @@ function addInfoLocalStorage() {
 
 function sendGameInfo() {
     if(!player1name && !localStorage.getItem('player1')) {
-        let name1 = prompt('Please, write name player 1', 'Player1');
-        document.querySelector('#player1').innerHTML = name1;
-        let name2 = prompt('Please, write name player 2', 'Player2');
-        document.querySelector('#player2').innerHTML = name2;
+        setTimeout (() => {
+            let name1 = prompt('Please, write name player 1', 'Player1');
+            document.querySelector('#player1').innerHTML = name1;
+            let name2 = prompt('Please, write name player 2', 'Player2');
+            document.querySelector('#player2').innerHTML = name2;
+        }, 1000)
     } else {
         document.querySelector('#player1').innerHTML = player1name;
         document.querySelector('#player2').innerHTML = player2name;
@@ -181,9 +183,7 @@ addXorY('.zone9');
 
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
-setTimeout (() => {
-    sendGameInfo();
-}, 50);
+sendGameInfo();
 
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
