@@ -37,7 +37,7 @@ function winners () {
         (zone['.zone3'] == 'X' && zone['.zone6'] == 'X' && zone['.zone9'] == 'X') ||
         (zone['.zone1'] == 'X' && zone['.zone5'] == 'X' && zone['.zone9'] == 'X') ||
         (zone['.zone7'] == 'X' && zone['.zone5'] == 'X' && zone['.zone3'] == 'X')) {
-            //---------------------
+            win('#player1');
         } 
     //------------------------------------Win player2-----------------------------------
     else if ((zone['.zone1'] == 'O' && zone['.zone2'] == 'O' && zone['.zone3'] == 'O') ||
@@ -48,7 +48,7 @@ function winners () {
         (zone['.zone3'] == 'O' && zone['.zone6'] == 'O' && zone['.zone9'] == 'O') ||
         (zone['.zone1'] == 'O' && zone['.zone5'] == 'O' && zone['.zone9'] == 'O') ||
         (zone['.zone7'] == 'O' && zone['.zone5'] == 'O' && zone['.zone3'] == 'O')) {
-           //------------------
+            win('#player2');
         }
     //------------------------------------No winner-----------------------------------
     else if (countEventListener > 9) {
@@ -60,3 +60,13 @@ function winners () {
 }    
 
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+function win(id) {
+    setTimeout (() => {
+        alert (`Win ${document.querySelector(id).innerHTML}!`);
+        window.location.reload();
+    }, 500);
+}
+
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
