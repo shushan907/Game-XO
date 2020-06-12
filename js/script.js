@@ -78,6 +78,7 @@ function win(id) {
         alert (`Win ${document.querySelector(id).innerHTML}!`);
         window.location.reload();
     }, 0);
+    startCanvasPainting()
 }
 
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -143,3 +144,41 @@ function changePlayersName(id) {
 };  
 
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+function forCanvas(a, b, c, d) {
+    var can = document.getElementById("myCanvas");
+    var ctx = can.getContext("2d");
+    can.style.display = 'block';
+    ctx.beginPath();
+    ctx.moveTo(a, b);
+    ctx.lineTo(c, d);
+    ctx.stroke();
+}
+
+function startCanvasPainting() {
+        if ((zone['.zone1'] == 'X' && zone['.zone2'] == 'X' && zone['.zone3'] == 'X') || 
+        (zone['.zone1'] == 'O' && zone['.zone2'] == 'O' && zone['.zone3'] == 'O')) {
+            forCanvas (0, 25, 300, 25) //1-3
+    } else if ((zone['.zone4'] == 'X' && zone['.zone5'] == 'X' && zone['.zone6'] == 'X') ||
+        (zone['.zone4'] == 'O' && zone['.zone5'] == 'O' && zone['.zone6'] == 'O')) {
+            forCanvas (0, 75, 300, 75) //4-6
+    } else if ((zone['.zone7'] == 'X' && zone['.zone8'] == 'X' && zone['.zone9'] == 'X') ||
+        (zone['.zone7'] == 'O' && zone['.zone8'] == 'O' && zone['.zone9'] == 'O')) {
+            forCanvas (0, 125, 300, 125) //7-9
+    } else if ((zone['.zone1'] == 'X' && zone['.zone4'] == 'X' && zone['.zone7'] == 'X') ||
+        (zone['.zone1'] == 'O' && zone['.zone4'] == 'O' && zone['.zone7'] == 'O')) {
+            forCanvas (50, 0, 50, 300) //1-7
+    } else if ((zone['.zone7'] == 'X' && zone['.zone5'] == 'X' && zone['.zone3'] == 'X') ||
+        (zone['.zone7'] == 'O' && zone['.zone5'] == 'O' && zone['.zone3'] == 'O')) {
+            forCanvas (0, 150, 300, 0) //7-3
+    } else if ((zone['.zone1'] == 'X' && zone['.zone5'] == 'X' && zone['.zone9'] == 'X') ||
+        (zone['.zone1'] == 'O' && zone['.zone5'] == 'O' && zone['.zone9'] == 'O')) {
+            forCanvas (0, 0, 300, 150) //1-9
+    } else if ((zone['.zone2'] == 'X' && zone['.zone5'] == 'X' && zone['.zone8'] == 'X') ||
+        (zone['.zone2'] == 'O' && zone['.zone5'] == 'O' && zone['.zone8'] == 'O')) {
+            forCanvas (150, 0, 150, 300) //2-8
+    } else if ((zone['.zone3'] == 'X' && zone['.zone6'] == 'X' && zone['.zone9'] == 'X') ||
+        (zone['.zone3'] == 'O' && zone['.zone6'] == 'O' && zone['.zone9'] == 'O')) {
+            forCanvas (250, 0, 250, 300) //3-9
+    }
+}
