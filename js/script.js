@@ -4,7 +4,7 @@ let xo;
 let zone = {};
 let countEventListener = 1;
 
-//------------GetLocalStorageInfo-----------------------------
+//-------------------------------GetLocalStorageInfo------------------------------------
 
 let player1 = +localStorage.getItem('player1');
 let player2 = +localStorage.getItem('player2');
@@ -24,6 +24,9 @@ function addXorY (className) {
          once: true,
         })
 };
+
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
 addXorY('.zone1');
 addXorY('.zone2');
 addXorY('.zone3');
@@ -74,7 +77,7 @@ function win(id) {
     setTimeout (() => {
         alert (`Win ${document.querySelector(id).innerHTML}!`);
         window.location.reload();
-    }, 500);
+    }, 0);
 }
 
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -85,8 +88,6 @@ function addInfoLocalStorage() {
     localStorage.setItem('player1', document.querySelector('#player1win').innerHTML);
     localStorage.setItem('player2', document.querySelector('#player2win').innerHTML);
 }
-
-//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -102,8 +103,43 @@ function sendGameInfo() {
         document.querySelector('#player1win').innerHTML = player1;
         document.querySelector('#player2win').innerHTML = player2;
     }
-}
+};
+
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 setTimeout (() => {
     sendGameInfo();
-}, 0)
+}, 50);
+
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+changePlayersName('#player1');
+changePlayersName('#player2');
+
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+//------------------------------EventListeners-----------------------------------------    
+
+document.querySelector('.newPlayers').addEventListener('click', () => {
+    localStorage.clear();
+    window.location.reload();
+});
+
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+document.querySelector('.reset').addEventListener('click', () => {
+    localStorage.removeItem('player1');
+    localStorage.removeItem('player2');
+    window.location.reload();
+});
+
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+function changePlayersName(id) {
+    document.querySelector(id).addEventListener('click', () => {
+        let name = prompt('Please, write name.', document.querySelector(id).innerHTML);
+        document.querySelector(id).innerHTML = name;
+    })
+};  
+
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
