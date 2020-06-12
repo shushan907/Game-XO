@@ -4,6 +4,7 @@ body {
 }
 
 #gameZone {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: 300px;
@@ -28,7 +29,6 @@ body {
     text-align: center;
     width: 100%;
 }
-
 
 #player {
     position: absolute;
@@ -71,6 +71,22 @@ button {
     width: 300px;
     height: 300px;
     position: absolute;
-    left: 39%;
     z-index: 1;
+}
+
+@media(min-width: 0px) and (max-width: 680px ) {
+    #gameZone {
+        margin: 18% auto 0 auto;
+    }
+    
+    #xo {
+        top: 2%;
+    }
+
+    #player {
+        position: static;
+        width: 40%;
+        margin: 2% auto 0 auto;
+    }
+    
 }
