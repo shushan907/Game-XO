@@ -17,7 +17,7 @@ body {
     border: 1px solid #450FA3;
     text-align: center;
     line-height: 100px;
-    font-size: 20px;
+    font-size: 50px;
     height: 98px;
 }
 
@@ -98,7 +98,7 @@ body {
     bottom: 10px;
     right: 10px;
     background-color: #5A11D9;
-    color: white;
+    color: #F3C9D0;
     width: 60px;
     height: 30px;
     border-radius: 10px;
