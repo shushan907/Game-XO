@@ -58,7 +58,7 @@ body {
     text-align: center;
 }
 
-button {
+.reset, .newPlayers {
     background-image: url('../image/ava3.png');
     width: 100px;
     height: 30px;
@@ -74,6 +74,35 @@ button {
     z-index: 1;
 }
 
+#alert {
+    display: none;
+    width: 300px;
+    height: 100px;
+    line-height: 100px;
+    position: relative;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    margin: -280px 0 0 -150px;
+    border: 1px solid #F3C9D0;
+    border-radius: 10px;
+    background-color: #F3E3DA;
+    color: #5A11D9;
+    font-size: 20px;
+    text-align: center;
+}
+
+#ok {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #5A11D9;
+    color: white;
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+}
 @media(min-width: 0px) and (max-width: 680px ) {
     #gameZone {
         margin: 18% auto 0 auto;

@@ -56,10 +56,7 @@ function winners () {
         }
     //------------------------------------No winner-----------------------------------
     else if (countEventListener > 9) {
-        setTimeout (() => {
-            alert ('We don\'t have winner.');
-            window.location.reload();
-        }, 1000)
+        ownAlert('We don\'t have winner.');
     }
 }    
 
@@ -68,10 +65,7 @@ function winners () {
 function win(id) {
     setTimeout (() => {
         document.querySelector('.pyro').style.display = 'block';
-        alert (`Win ${document.querySelector(id).innerHTML}!`);
-        setTimeout(() => {
-            window.location.reload();
-        },8000)
+        ownAlert(`Win ${document.querySelector(id).innerHTML}!`);
     },1000);
     startCanvasPainting();
 };
@@ -141,6 +135,8 @@ function forCanvas(a, b, c, d) {
     ctx.stroke();
 }
 
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
 function startCanvasPainting() {
     if ((zone['.zone1'] == 'X' && zone['.zone2'] == 'X' && zone['.zone3'] == 'X') || 
         (zone['.zone1'] == 'O' && zone['.zone2'] == 'O' && zone['.zone3'] == 'O')) {
@@ -189,3 +185,12 @@ sendGameInfo();
 
 changePlayersName('#player1');
 changePlayersName('#player2');
+
+function ownAlert(text) {
+    document.getElementById('alert').style.display = 'block';
+    document.getElementById('text').innerText = text;
+    document.getElementById('ok').addEventListener('click', () => {
+        document.getElementById('alert').style.display = 'none';
+        window.location.reload();
+    })
+} 
