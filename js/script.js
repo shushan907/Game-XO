@@ -57,6 +57,7 @@ function winners () {
     //------------------------------------No winner-----------------------------------
     else if (countEventListener > 9) {
         ownAlert('We don\'t have winner.');
+        addInfoLocalStorage();
     }
 }    
 
@@ -82,7 +83,7 @@ function addInfoLocalStorage() {
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 function sendGameInfo() {
-    if(!player1name && !localStorage.getItem('player1')) {
+    if(!localStorage.getItem('player1')) {
         setTimeout (() => {
             let name1 = prompt('Please, write name player 1', 'Player1');
             document.querySelector('#player1').innerHTML = name1;
